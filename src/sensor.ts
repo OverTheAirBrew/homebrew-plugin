@@ -1,12 +1,12 @@
 import Container, { Token } from 'typedi';
 import { SocketIo } from '@overtheairbrew/socket-io';
-import {SensorReading} from './messages/sockets/sensor-reading'
+import { SensorReading } from './messages/sockets/sensor-reading';
 
 export const SensorToken = new Token<Sensor>('sensors');
 
-
 export interface ISensor {
   run: (params: any) => Promise<number>;
+  validate: (params: any) => Promise<boolean>;
   sensorType: string;
 }
 
@@ -25,4 +25,5 @@ export abstract class Sensor implements ISensor {
   }
 
   public abstract run(params: any): Promise<number>;
+  public abstract validate(params: any): Promise<boolean>;
 }
