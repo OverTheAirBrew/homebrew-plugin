@@ -1,5 +1,6 @@
-import { Sensor } from '.';
+import { Actor, Sensor } from '.';
 
 export interface IPackageConfig {
-  sensors: typeof Sensor[];
+  sensors?: typeof Sensor[];
+  actors?: typeof Actor[];
 }
