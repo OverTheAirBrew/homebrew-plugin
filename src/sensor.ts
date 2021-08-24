@@ -1,6 +1,7 @@
 import Container, { Token } from 'typedi';
 import { SocketIo } from '@overtheairbrew/socket-io';
 import { SensorReading } from './messages/sockets/sensor-reading';
+import { Property } from './properties';
 
 export const SensorToken = new Token<Sensor>('sensors');
 
@@ -13,7 +14,7 @@ export interface ISensor {
 export abstract class Sensor implements ISensor {
   private socket: SocketIo;
 
-  constructor(public sensorType: string) {
+  constructor(public sensorType: string, public properties: Property[]) {
     this.socket = Container.get<SocketIo>(SocketIo);
   }
 
@@ -25,5 +26,12 @@ export abstract class Sensor implements ISensor {
   }
 
   public abstract run(params: any): Promise<number>;
-  public abstract validate(params: any): Promise<boolean>;
+
+  public async validate(params: any): Promise<boolean> {
+    const validationResults = await Promise.all(
+      this.properties.map((prop) => prop.validateProperty(params[prop.name])),
+    );
+
+    return !validationResults.some((res) => !res);
+  }
 }
