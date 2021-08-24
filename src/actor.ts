@@ -1,5 +1,8 @@
+import { Token } from 'typedi';
 import { Property } from '.';
 import { Validatable } from './properties/validatable';
+
+export const ActorToken = new Token<Actor>('actors');
 
 interface IActor {
   actorName: string;
