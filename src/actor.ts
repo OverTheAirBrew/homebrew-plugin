@@ -1,19 +1,10 @@
 import { Token } from 'typedi';
-import { Property } from '.';
+import { Property } from './properties';
 import { Validatable } from './properties/validatable';
 
 export const ActorToken = new Token<Actor>('actors');
 
-interface IActor {
-  actorName: string;
-
-  on(params: any): Promise<void>;
-  off(params: any): Promise<void>;
-
-  validate: (params: any) => Promise<boolean>;
-}
-
-export abstract class Actor extends Validatable implements IActor {
+export abstract class Actor extends Validatable {
   constructor(public actorName: string, public properties: Property[]) {
     super(properties);
   }
