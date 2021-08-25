@@ -8,5 +8,9 @@ export abstract class Logic extends Validatable {
     super(properties);
   }
 
-  abstract run(params: any): Promise<any>;
+  abstract run(params: any): Promise<{
+    heatTime: number;
+    waitTime: number;
+    opts: any;
+  }>;
 }
