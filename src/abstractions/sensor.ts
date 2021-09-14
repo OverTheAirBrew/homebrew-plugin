@@ -1,8 +1,8 @@
-import Container, { Token } from 'typedi';
 import { SocketIo } from '@overtheairbrew/socket-io';
-import { SensorReading } from './messages/sockets/sensor-reading';
-import { Property } from './properties';
-import { Validatable } from './properties/validatable';
+import Container, { Token } from 'typedi';
+import { SensorReading } from '../messages/sockets/sensor-reading';
+import { Property } from '../properties';
+import { Validatable } from '../properties/validatable';
 
 export const SensorToken = new Token<Sensor>('sensors');
 

@@ -1,6 +1,6 @@
 import { Token } from 'typedi';
-import { Property } from './properties';
-import { Validatable } from './properties/validatable';
+import { Property } from '../properties';
+import { Validatable } from '../properties/validatable';
 
 export const ActorToken = new Token<Actor>('actors');
 

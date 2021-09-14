@@ -1,5 +1,5 @@
 import { Token } from 'typedi';
-import { Property, Validatable } from './properties';
+import { Property, Validatable } from '../properties';
 
 export const LogicToken = new Token<Logic>('logics');
 
