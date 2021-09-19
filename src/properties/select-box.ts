@@ -35,6 +35,7 @@ export class SelectBoxProperty<T extends string | number> extends Property {
       return true;
     }
 
-    return this.values.includes(value);
+    const values = await this.getValues();
+    return values.includes(value);
   }
 }
