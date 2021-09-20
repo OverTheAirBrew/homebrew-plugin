@@ -5,11 +5,12 @@ export class NumberProperty extends Property {
     super('number');
   }
 
-  public async validateProperty(param: number | undefined) {
+  public async validateProperty(param: any) {
     if (this.required && !param) {
       return false;
     }
 
-    return true;
+    const parsedValue = parseInt(param);
+    return !!parsedValue;
   }
 }
