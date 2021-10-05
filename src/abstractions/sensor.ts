@@ -6,16 +6,14 @@ import { Validatable } from '../properties/validatable';
 
 export const SensorToken = new Token<Sensor>('sensors');
 
-export interface ISensor {
-  run: (params: any) => Promise<number>;
-  validate: (params: any) => Promise<boolean>;
-  sensorType: string;
-}
-
-export abstract class Sensor extends Validatable implements ISensor {
+export abstract class Sensor extends Validatable {
   private messagingManager: IMessagingManager;
 
-  constructor(public sensorType: string, public properties: Property[]) {
+  constructor(
+    public sensorType: string,
+    public properties: Property[],
+    public saveTelemetry: boolean = true,
+  ) {
     super(properties);
 
     this.messagingManager = Container.get<IMessagingManager>(IMessagingManager);
