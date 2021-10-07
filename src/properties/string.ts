@@ -1,11 +1,7 @@
 import { Property } from './base-property';
 
 export class StringProperty extends Property {
-  constructor(
-    public id: string,
-    public placeholder: string,
-    public required: boolean,
-  ) {
+  constructor(public id: string, public required: boolean) {
     super('string');
   }
 
