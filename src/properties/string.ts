@@ -2,7 +2,7 @@ import { Property } from './base-property';
 
 export class StringProperty extends Property {
   constructor(
-    public name: string,
+    public id: string,
     public placeholder: string,
     public required: boolean,
   ) {

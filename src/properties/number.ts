@@ -1,7 +1,7 @@
 import { Property } from '.';
 
 export class NumberProperty extends Property {
-  constructor(public name: string, public required: boolean) {
+  constructor(public id: string, public required: boolean) {
     super('number');
   }
 

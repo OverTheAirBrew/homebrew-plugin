@@ -2,7 +2,7 @@ import { Property } from './base-property';
 
 export class SelectBoxProperty<T extends string | number> extends Property {
   constructor(
-    public name: string,
+    public id: string,
     public defaultValue: T,
     public required: boolean,
     public values: () => Promise<T[]> | T[],

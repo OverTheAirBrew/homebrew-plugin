@@ -2,7 +2,7 @@ type PropertyType = 'string' | 'number' | 'select-box';
 
 export abstract class Property {
   abstract required: boolean;
-  abstract name: string;
+  abstract id: string;
 
   constructor(public type: PropertyType) {}
 

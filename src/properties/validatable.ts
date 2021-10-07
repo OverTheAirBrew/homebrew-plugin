@@ -5,7 +5,7 @@ export abstract class Validatable {
 
   public async validate(params: any): Promise<boolean> {
     const validationResults = await Promise.all(
-      this.properties.map((prop) => prop.validateProperty(params[prop.name])),
+      this.properties.map((prop) => prop.validateProperty(params[prop.id])),
     );
 
     return !validationResults.some((res) => !res);
