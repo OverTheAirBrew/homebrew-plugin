@@ -1,6 +1,6 @@
 import { ClassType } from '../class-type';
 
-interface ILocaleService {
+export interface ILocaleService {
   generateLocalizations(): Promise<void>;
   setLocale(locales: string[]): Promise<void>;
   getTranslatedVersion(id: string): Promise<string>;
