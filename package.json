@@ -1,6 +1,6 @@
 {
   "name": "@overtheairbrew/homebrew-plugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The base classes used when developing plugins for the homebrew system",
   "main": "dist/index.js",
   "files": [
